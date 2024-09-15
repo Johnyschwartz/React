@@ -1,73 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Navabr from "./components/Navbar"
-
+import React from "react"
+import ReactDom, { createRoot } from "react-dom/client"
+import msd from "./images/download (1).jpeg"
+import pandya from "./images/download (2).jpeg"
+import bumbrah from "./images/download (3).jpeg"
+import jadeja from "./images/download (4).jpeg"
+import sachin from "./images/download (5).jpeg"
+import rohit from "./images/download.jpeg"
 import "./style.css"
-import one from "./images/download.jpeg"
-
-const root=ReactDOM.createRoot(document.getElementById("root"))
+const root = createRoot(document.getElementById("root"))
 
 
-function Photo(){
+function Iamge(props)
+{
   return(
-    <div className="imag">
-      <div>
-        <img src={one}></img>
-        <p>This is a beautiful mountain
-           located europe as well as in sewis sakj 
-           sjcjc johny schwartz 
-        </p>
-      </div>
-      <div>
-        <img src={one}></img>
-        <p>This is a beautiful mountain
-           located europe as well as in sewis sakj 
-           sjcjc johny schwartz 
-        </p>
-      </div>
-      <div>
-        <img src={one}></img>
-        <p>This is a beautiful mountain
-           located europe as well as in sewis sakj 
-           sjcjc johny schwartz 
-        </p>
-      </div>
-     
+    
+
+    <div className="imgDiv">
+      <img className="picture" style={{border:"solid black 1px",padding:"10px",margin:"10px"}} src={props.image}></img>
+      <h1 style={{ height:"30px",width:"50%",
+         display:"flex",justifyContent:"center", marginLeft:"90px", borderRadius:"10px",marigin:"10px"}}>{props.name}</h1>
     </div>
+    
   )
 }
 
-function About(){
-  return(
-  <div className="about">
-  <h1>About Us</h1>
-  <p>dndnkn dkndknk kdnkndkn kdnknd</p>
-  </div>
-  )
-}
-
-function Footer(){
-  return(
-    <div className="head">
-    <div className="foot">
-      <div>
-      <ul>
-        <li>contact us</li>
-        <li>6380496579</li>
-        <li>johnyschwartz4@gmail.com</li>       
-      </ul>
-      </div>
-    </div>
-    </div>
-  )
-}
+var Photo =[
+  {
+    image:msd,
+    name:"Ms.Dhoni"
+  },
+  {
+    image:pandya,
+    name:"Pandya"
+  },
+  {
+    image:bumbrah,
+    name:"bumrah"
+  },
+  {
+    image:jadeja,
+    name:"jadeja"
+  },
+  {
+    image:sachin,
+    name:"sachin"
+  },
+  {
+    image:rohit,
+    name:"rohit"
+  },
+ 
+]
 
 root.render(
-  <div>
-    <Navabr></Navabr>
-    <Photo></Photo>
-    <About></About>
-    <Footer></Footer>
-  </div>
+     Photo.map(function(item){
+      return <Iamge image={item.image} name={item.name}></Iamge>
+     })
 )
-  
